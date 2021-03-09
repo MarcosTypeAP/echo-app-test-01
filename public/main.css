@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    list-style: none;
+    font-size: 1.3rem;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 8px;
+}
+
+header nav ul li .nav-apps-icon {
+    background-image: url("https://static.thenounproject.com/png/756729-200.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    filter: invert(40%);
+}
+
+.nav-apps-icon a {
+    color: transparent;
+    font-size: 3rem;
+}
+
+header nav ul li a img {
+    display: flex;
+    align-self: center;
+    border-radius: 50%;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/**************************************/
+
+main {
+    text-align: center;
+}
+
+main .google-logo {
+    width: 270px;
+    margin-top: 140px;
+    margin-bottom: 25px;
+}
+
+main .main-input {
+    display: inline-block;
+    text-align: center;
+}
+
+main .input-conteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    width: 585px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+}
+
+main .input-conteiner .search-icon {
+    background-image: url("./assets/search.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 15px;
+}
+
+main .input-conteiner:hover {
+    box-shadow: 0px 1px 7px 0px #ccc;
+    border-color: #fff;
+}
+
+main .input-conteiner .text-search-var {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    width: 480px;
+}
+
+main .input-conteiner .voice-search-icon {
+    background-image: url("https://i.pinimg.com/originals/ea/5f/5b/ea5f5bd3b4110f2afb958049b4096d3a.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+    margin-right: 15px;
+    filter: blur(0);
+}
+
+main section button:hover {
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px 0 #ddd;
+    margin: 11px 3px
+}
+
+main section button {
+    height: 35px;
+    border-radius: 4px;
+    border: none;
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 1.4rem;
+    padding: 0 16px;
+    margin: 11px 4px;
+    outline: none;
+}
+
+main .section-span {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/******************************/
+
+footer {
+    display: flex;
+    flex-flow: wrap column;
+    position: absolute;
+    bottom: 0;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 80px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #888;
+    font-size: 1.4rem;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer .footer-up {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+    border-top: 1px solid #dedede;
+}
+
+footer .footer-up a {
+    margin-left: 30px;
+}
+
+footer .footer-down {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #dedede;
+}
+
+footer .footer-down-left {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+footer .footer-down-right {
+    display: flex;
+    align-items: center;
+}
+
+footer li {
+    padding-right: 30px;
+}

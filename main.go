@@ -1,19 +1,25 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/labstack/echo/v4"
+	_ "database/sql"
+	"fmt"
+	"os"
 )
 
-func main() {
-	e := echo.New()
-
-	e.GET("/", f)
-
-	e.Logger.Fatal(e.Start(":1323"))
+//IsErr prints the error that was send to it
+func IsErr(err error) {
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
-func f(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello World!")
+func main() {
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
+	RunServer("", port)
 }

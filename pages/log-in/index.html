@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- http://localhost:8080/notes -->
+    <!-- http://localhost:1323/login -->
+    <form id="form_html" action="http://localhost:8080/notesapp/notes" method="POST">
+        <label for="input_username" class="form-label-username">Username</label>
+        <input type="text" name="username" placeholder="Username" class="form_input_username">
+        <label for="input_password" class="form-label-password">Password</label>
+        <input type="text" name="password" placeholder="Password" class="form_input_password">
+        <button type="submit" class="form-button-login">Log In</button>
+    </form>
+</body>
+</html>

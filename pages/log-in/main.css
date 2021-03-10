@@ -1,0 +1,29 @@
+body {
+    background-color: #333;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#form_html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-label-username {
+    margin-bottom: 10px;
+}
+
+.form-label-password {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form-button-login {
+    margin-top: 20px;
+}

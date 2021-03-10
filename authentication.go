@@ -1,12 +1,73 @@
 package main
 
 import (
+	"crypto/rsa"
 	"errors"
+	"fmt"
+	"io/ioutil"
+	"time"
 	"unicode"
 
+	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/dgrijalva/jwt-go/request"
 	"github.com/go-playground/validator/v10"
+	"github.com/labstack/echo/v4"
 	"golang.org/x/crypto/bcrypt"
 )
+
+type jwtCustomClaims struct {
+	User string `json:"user"`
+	Role string `json:"role"`
+	jwt.StandardClaims
+}
+
+var (
+	privateKey *rsa.PrivateKey
+	publicKey  *rsa.PublicKey
+)
+
+func init() {
+	privateKeyBytes, err := ioutil.ReadFile("./keys/private.rsa.key")
+	IsErr(err)
+
+	publicKeyBytes, err := ioutil.ReadFile("./keys/public.rsa.pub")
+	IsErr(err)
+
+	privateKey, err = jwt.ParseRSAPrivateKeyFromPEM(privateKeyBytes)
+	IsErr(err)
+
+	publicKey, err = jwt.ParseRSAPublicKeyFromPEM(publicKeyBytes)
+	IsErr(err)
+}
+
+// GenerateJWT generates a JWT
+func GenerateJWT(username, role string) (string, error) {
+
+	claims := jwtCustomClaims{
+		username,
+		role,
+		jwt.StandardClaims{
+			ExpiresAt: time.Now().Add(1 * time.Hour).Unix(),
+		},
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodRS256, claims)
+	t, err := token.SignedString(privateKey)
+	IsErr(err)
+	if err != nil {
+		return "", err
+	}
+
+	return t, nil
+}
+
+func g(c echo.Context) {
+	token, err := jwt.ParseFromRequestWithClaims(c.Request, request.OAuth2Extractor, &jwtCustomClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return publicKey, nil
+	})
+
+	fmt.Println(token, err.Error())
+}
 
 // HashPassword hashs a password with cost 10
 func HashPassword(password string) ([]byte, error) {
